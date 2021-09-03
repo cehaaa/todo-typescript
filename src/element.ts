@@ -5,7 +5,10 @@ const $ = (selector :string) => {
     : document.querySelector(selector)
 }
 
-const btnCreate = <HTMLInputElement>$("#btn-create");
-const taskFormContainer = <HTMLInputElement>$("#task-form-container")
 const taskForm = <HTMLInputElement>$("#task-form")
+const btnCreate = <HTMLInputElement>$("#btn-create");
+const btnCancel = <HTMLInputElement>$("#btn-cancel")
 const emptyTaskAlert = <HTMLInputElement>$('#empty-task-alert')
+const taskFormContainer = <HTMLInputElement>$("#task-form-container")
+const tasksContainer = <HTMLInputElement>$("#tasks-container")
+const btnDeleteTask = <HTMLInputElement>$("#btn-delete-task")

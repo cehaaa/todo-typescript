@@ -9,7 +9,8 @@ btnCreate.addEventListener('click', () => {
     taskFormContainer.classList.add("fade")
     taskFormContainer.classList.toggle("hidden")
 
-    emptyTaskAlert.classList.toggle("hidden")
+    tasksContainer.classList.add('hidden')  
+    emptyTaskAlert.classList.add('hidden')
 
     task.clear()
 })
@@ -24,7 +25,14 @@ taskForm.addEventListener('submit', e => {
 
   task.createTask(taskData)
 
-  emptyTaskAlert.classList.toggle("hidden")
+  taskFormContainer.classList.toggle("hidden")
+})
+  
+btnCancel.addEventListener('click', () => {
+  taskFormContainer.classList.toggle("hidden")
+  tasksContainer.classList.toggle('hidden')
+
+  task.checkEmptyTask()
 })
 
 window.onload = () => {

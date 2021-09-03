@@ -5,7 +5,10 @@ var $ = function (selector) {
         ? element
         : document.querySelector(selector);
 };
-var btnCreate = $("#btn-create");
-var taskFormContainer = $("#task-form-container");
 var taskForm = $("#task-form");
+var btnCreate = $("#btn-create");
+var btnCancel = $("#btn-cancel");
 var emptyTaskAlert = $('#empty-task-alert');
+var taskFormContainer = $("#task-form-container");
+var tasksContainer = $("#tasks-container");
+var btnDeleteTask = $("#btn-delete-task");
