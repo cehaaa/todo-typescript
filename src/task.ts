@@ -85,7 +85,7 @@ class Task {
 
   deleteTask(id:number) {
     this.tasks.splice(id, 1);
-    this.showTasks()
+    this.save()
   }
 
   clear(){

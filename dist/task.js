@@ -35,7 +35,7 @@ var Task = /** @class */ (function () {
     };
     Task.prototype.deleteTask = function (id) {
         this.tasks.splice(id, 1);
-        this.showTasks();
+        this.save();
     };
     Task.prototype.clear = function () {
         $("#title").value = "";
