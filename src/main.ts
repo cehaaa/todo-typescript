@@ -18,8 +18,8 @@ btnCreate.addEventListener('click', () => {
 taskForm.addEventListener('submit', e => {
   e.preventDefault()
 
-  const title = ( <HTMLLIElement>$('#title')).value
-  const description = (<HTMLLIElement>$('#description')).value
+  const title = ( <HTMLInputElement>$('#title')).value
+  const description = (<HTMLInputElement>$('#description')).value
 
   const taskData:TaskInterface = {title, description}
 
