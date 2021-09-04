@@ -65,7 +65,6 @@ class Task {
   }
   
   showTasks(){
-
     this.checkEmptyTask()
 
     const taskList = this.generateTemplate()        
@@ -81,6 +80,10 @@ class Task {
   save(){
     localStorage.setItem('task_data', JSON.stringify(this.tasks))
     this.showTasks()
+  }
+
+  doneTask(id:number){
+    this.tasks[id].isDone = true;
   }
 
   deleteTask(id:number) {
