@@ -25,7 +25,7 @@ class Task {
             <div>${task.title}</div>
           </div>
           <div>
-            <button>
+            <button onclick="task.doneTask('${task.title}', '${task.description}' ,'${task.isDone}' ,${i})">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -81,6 +81,18 @@ class Task {
   save(){
     localStorage.setItem('task_data', JSON.stringify(this.tasks))
     this.showTasks()
+  }
+
+  doneTask(title:string, description:string, isDone:boolean, i:number) {
+    let mock = {
+      title : title,
+      description: description,
+      isDone : true
+    }
+
+    console.log(mock, typeof i)
+
+    this.tasks.splice(i, 1, mock)
   }
 
   deleteTask(id:number) {

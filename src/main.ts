@@ -1,6 +1,7 @@
 interface TaskInterface {
   title : string;
   description : string;
+  isDone : boolean
 }
 
 const task = new Task()
@@ -20,8 +21,9 @@ taskForm.addEventListener('submit', e => {
 
   const title = ( <HTMLInputElement>$('#title')).value
   const description = (<HTMLInputElement>$('#description')).value
+  const isDone: boolean = false
 
-  const taskData:TaskInterface = {title, description}
+  const taskData:TaskInterface = {title, description, isDone}
 
   task.createTask(taskData)
 

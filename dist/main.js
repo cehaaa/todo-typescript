@@ -11,7 +11,8 @@ taskForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var title = $('#title').value;
     var description = $('#description').value;
-    var taskData = { title: title, description: description };
+    var isDone = false;
+    var taskData = { title: title, description: description, isDone: isDone };
     task.createTask(taskData);
     taskFormContainer.classList.toggle("hidden");
 });
