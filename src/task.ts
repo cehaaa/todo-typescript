@@ -29,22 +29,43 @@ class Task {
             ${ task.isDone ? `<div class="line-through">${task.title}</div>` : `<div>${task.title}</div>` }
           </div>
           <div class="flex space-x-2">
-            <button onclick="task.doneTask(${i})" class="hover:bg-green-500 hover:bg-opacity-20 flex justify-center items-center w-8 p-1 duration-200 ease-in-out rounded">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                class="w-5 text-green-500 "
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </button>
+            ${task.isDone
+              ? 
+              `<button onclick="task.doneTask(${i})" class="hover:bg-green-500 hover:bg-opacity-20 flex justify-center items-center w-8 p-1 duration-200 ease-in-out rounded cursor-not-allowed" disabled>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="w-5 text-green-500 "
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </button>`
+              : 
+              
+              `<button onclick="task.doneTask(${i})" class="hover:bg-green-500 hover:bg-opacity-20 flex justify-center items-center w-8 p-1 duration-200 ease-in-out rounded">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="w-5 text-green-500 "
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </button>`              
+            }
             <button onclick="task.deleteTask(${i})" class="hover:bg-red-500 hover:bg-opacity-20 flex justify-center items-center w-8 p-1 duration-200 ease-in-out rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
