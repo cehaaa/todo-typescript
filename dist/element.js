@@ -12,3 +12,5 @@ var emptyTaskAlert = $('#empty-task-alert');
 var taskFormContainer = $("#task-form-container");
 var tasksContainer = $("#tasks-container");
 var btnDeleteTask = $("#btn-delete-task");
+var successToast = $("#success-toast");
+var alertToast = $("#alert-toast");

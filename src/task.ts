@@ -1,12 +1,15 @@
 class Task {
   tasks : TaskInterface[];
 
+  /**
+   * @param tasks
+   */
+
   constructor(){
     this.tasks = JSON.parse(localStorage.getItem('task_data')!) || []
   }
 
   checkEmptyTask(){
-
     if(this.tasks.length){
       emptyTaskAlert.classList.add('hidden')
       tasksContainer.classList.remove('hidden')
@@ -66,9 +69,7 @@ class Task {
   }
   
   showTasks(){
-
     this.checkEmptyTask()
-
     const taskList = this.generateTemplate()        
     tasksContainer.innerHTML = taskList
   }
@@ -91,12 +92,25 @@ class Task {
       description : task.description,
       isDone : true
     }
+
+    successToast.classList.toggle('hidden')
+    setTimeout( () => {
+      successToast.classList.toggle('hidden')
+    },1000)
+
     this.tasks.splice(id, 1, mock)
     this.save()
     this.clear()
   }  
 
   deleteTask(id:number) {
+
+    alertToast.classList.toggle('hidden')
+    
+    setTimeout( () => {
+      alertToast.classList.toggle('hidden')
+    },1000)
+    
     this.tasks.splice(id, 1);
     this.save()
   }

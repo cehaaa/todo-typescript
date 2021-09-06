@@ -1,5 +1,8 @@
 "use strict";
 var Task = /** @class */ (function () {
+    /**
+     * @param tasks
+     */
     function Task() {
         this.tasks = JSON.parse(localStorage.getItem('task_data')) || [];
     }
@@ -40,11 +43,19 @@ var Task = /** @class */ (function () {
             description: task.description,
             isDone: true
         };
+        successToast.classList.toggle('hidden');
+        setTimeout(function () {
+            successToast.classList.toggle('hidden');
+        }, 1000);
         this.tasks.splice(id, 1, mock);
         this.save();
         this.clear();
     };
     Task.prototype.deleteTask = function (id) {
+        alertToast.classList.toggle('hidden');
+        setTimeout(function () {
+            alertToast.classList.toggle('hidden');
+        }, 1000);
         this.tasks.splice(id, 1);
         this.save();
     };
