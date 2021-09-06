@@ -18,20 +18,21 @@ class Task {
   generateTemplate(){
     let template = ""
     this.tasks.forEach((task,i) => {
+
       template += `
         <div class="text-gray-500 cursor-pointer py-2 flex space-x-2 justify-between">
           <div class="flex space-x-2">
             <div>${i + 1}.</div>
-            <div>${task.title}</div>
+            ${ task.isDone ? `<div class="line-through">${task.title}</div>` : `<div>${task.title}</div>` }
           </div>
-          <div>
-            <button onclick="task.doneTask('${task.title}', '${task.description}' ,'${task.isDone}' ,${i})">
+          <div class="flex space-x-2">
+            <button onclick="task.doneTask(${i})" class="hover:bg-green-500 hover:bg-opacity-20 flex justify-center items-center w-8 p-1 duration-200 ease-in-out rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                class="w-5 text-green-500 hover:text-green-600 duration-200 mr-3"
+                class="w-5 text-green-500 "
               >
                 <path
                   stroke-linecap="round"
@@ -41,7 +42,7 @@ class Task {
                 />
               </svg>
             </button>
-            <button onclick="task.deleteTask(${i})">
+            <button onclick="task.deleteTask(${i})" class="hover:bg-red-500 hover:bg-opacity-20 flex justify-center items-center w-8 p-1 duration-200 ease-in-out rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -83,17 +84,17 @@ class Task {
     this.showTasks()
   }
 
-  doneTask(title:string, description:string, isDone:boolean, i:number) {
+  doneTask(id :number){
+    const task = this.tasks[id]
     let mock = {
-      title : title,
-      description: description,
+      title : task.title,
+      description : task.description,
       isDone : true
     }
-
-    console.log(mock, typeof i)
-
-    this.tasks.splice(i, 1, mock)
-  }
+    this.tasks.splice(id, 1, mock)
+    this.save()
+    this.clear()
+  }  
 
   deleteTask(id:number) {
     this.tasks.splice(id, 1);

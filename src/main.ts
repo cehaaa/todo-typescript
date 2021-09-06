@@ -6,8 +6,7 @@ interface TaskInterface {
 
 const task = new Task()
 
-btnCreate.addEventListener('click', () => {
-    taskFormContainer.classList.add("fade")
+btnCreate.addEventListener('click', () => {    
     taskFormContainer.classList.toggle("hidden")
 
     tasksContainer.classList.add('hidden')  
